@@ -3,6 +3,7 @@ CREATE TABLE etudiant (
     name VARCHAR(50) NOT NULL,
     family_name VARCHAR(50) NOT NULL,
     idnumber INT NOT NULL UNIQUE,
+    balance DECIMAL(10, 3) NOT NULL DEFAULT 0,
     join_date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
