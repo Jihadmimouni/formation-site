@@ -41,6 +41,7 @@ CREATE TABLE formation (
     date_start DATE NOT NULL,
     date_end DATE NOT NULL,
     type VARCHAR(50) NOT NULL,
+    status BOOLEAN DEFAULT true,
     FOREIGN KEY (formateur_id) REFERENCES formateur(formateur_id)
 );
 
@@ -86,4 +87,12 @@ create Table monthly_charges (
     name VARCHAR(100) NOT NULL,
     amount DECIMAL(10, 3) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+create TABLE formation_charges (
+    formation_charge_id INT PRIMARY KEY AUTO_INCREMENT,
+    formation_id INT,
+    name VARCHAR(100) NOT NULL,
+    amount DECIMAL(10, 3) NOT NULL,
+    FOREIGN KEY (formation_id) REFERENCES formation(formation_id)
 );
