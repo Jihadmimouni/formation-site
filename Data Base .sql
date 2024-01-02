@@ -26,11 +26,13 @@ CREATE TABLE etudiant_payments (
 CREATE TABLE formateur_payments (
     payment_id INT PRIMARY KEY AUTO_INCREMENT,
     formateur_id INT,
+    formation_id INT,
     payment_type VARCHAR(50) NOT NULL,
     amount DECIMAL(10, 3) NOT NULL,
     is_canceled BOOLEAN DEFAULT false,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (formateur_id) REFERENCES formateur(formateur_id)
+    FOREIGN KEY (formateur_id) REFERENCES formateur(formateur_id),
+    FOREIGN KEY (formation_id) REFERENCES formation(formation_id)
 );
 
 CREATE TABLE formation (
@@ -56,6 +58,7 @@ CREATE TABLE enrollment (
 );
 
 CREATE TABLE formateur_formation (
+    formateur_formation_id INT PRIMARY KEY AUTO_INCREMENT,
     formateur_id INT,
     formation_id INT,
     FOREIGN KEY (formateur_id) REFERENCES formateur(formateur_id),
