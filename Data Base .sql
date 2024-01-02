@@ -74,3 +74,16 @@ create Table annual_payment (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (etudiant_id) REFERENCES etudiant(etudiant_id)
 );
+create Table charges (
+    charge_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    amount DECIMAL(10, 3) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+create Table monthly_charges (
+    monthly_charge_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    amount DECIMAL(10, 3) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
